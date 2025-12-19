@@ -1,4 +1,4 @@
-# 4th dimension project
+# 4th dimension?
 
 an interactive web application that collects people's interpretations of "what does the 4th dimension mean to you?".
 
