@@ -1,0 +1,253 @@
+/* ABC Diatype Font */
+@font-face {
+  font-family: 'ABC Diatype';
+  src: url('../fonts/ABCDiatype-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ABC Diatype';
+  src: url('../fonts/ABCDiatype-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ABC Diatype';
+  src: url('../fonts/ABCDiatype-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'ABC Diatype', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* View container */
+.view-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.view-container.hidden {
+  display: none;
+}
+
+/* Input View */
+#input-container {
+  flex-direction: column;
+}
+
+.input-content {
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+}
+
+#response-input {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 120px;
+  text-transform: lowercase;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#response-input::placeholder {
+  color: #666666;
+  text-transform: lowercase;
+}
+
+#response-input:focus {
+  border-color: #cccccc;
+}
+
+.input-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+#char-count {
+  font-size: 0.85rem;
+  color: #666666;
+  text-transform: lowercase;
+}
+
+#submit-btn {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 0.7rem 2rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-transform: lowercase;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+#submit-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+#submit-btn:active {
+  transform: scale(0.98);
+}
+
+.error-message {
+  margin-top: 1rem;
+  color: #ff6666;
+  font-size: 0.9rem;
+  min-height: 1.2rem;
+  text-transform: lowercase;
+}
+
+/* Canvas View */
+#canvas-container {
+  flex-direction: column;
+  position: relative;
+}
+
+.canvas-header {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.canvas-header button {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-transform: lowercase;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.canvas-header button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+#canvas {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Response elements */
+.response {
+  position: absolute;
+  color: #ffffff;
+  font-size: 0.95rem;
+  cursor: move;
+  user-select: none;
+  padding: 0.5rem;
+  max-width: 300px;
+  word-wrap: break-word;
+  text-transform: lowercase;
+  line-height: 1.4;
+  transition: opacity 0.2s ease;
+}
+
+.response:hover {
+  opacity: 0.7;
+}
+
+.response.dragging {
+  opacity: 0.6;
+  cursor: grabbing;
+}
+
+/* Loading message */
+.loading-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  color: #666666;
+  text-transform: lowercase;
+}
+
+.loading-message.hidden {
+  display: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  #response-input {
+    font-size: 0.95rem;
+  }
+
+  .response {
+    font-size: 0.85rem;
+    max-width: 250px;
+  }
+
+  .canvas-header {
+    top: 10px;
+    right: 10px;
+  }
+
+  .canvas-header button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .response {
+    font-size: 0.8rem;
+    max-width: 200px;
+  }
+}

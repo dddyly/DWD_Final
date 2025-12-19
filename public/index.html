@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>what is the 4th dimension for you?/title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Input View: Initial view for submitting a response -->
+  <div id="input-container" class="view-container">
+    <div class="input-content">
+      <h1>what is the 4th dimension for you?</h1>
+      <textarea
+        id="response-input"
+        placeholder="what is dimension beyond our physical 3d world? "
+        maxlength="500"
+        rows="4"
+      ></textarea>
+      <div class="input-footer">
+        <span id="char-count">0 / 500</span>
+        <button id="submit-btn">submit</button>
+      </div>
+      <p id="error-message" class="error-message"></p>
+    </div>
+  </div>
+
+  <!-- Canvas View: View for interacting with all responses -->
+  <div id="canvas-container" class="view-container hidden">
+    <div class="canvas-header">
+      <button id="refresh-btn">refresh responses</button>
+      <button id="back-btn">add another</button>
+    </div>
+    <div id="canvas">
+      <!-- Response elements will be dynamically added here -->
+    </div>
+    <div id="loading-message" class="loading-message hidden">loading responses...</div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/dragHandler.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
